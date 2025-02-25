@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Basic Meta Tags -->
+        <meta name="description" content="Melora - A Music Streaming Service, offering a Spotify-like experience with endless music, playlists, and podcasts.">
+        <meta name="keywords" content="music, streaming, Spotify clone, playlists, podcasts, Melora">
+        <meta name="author" content="Imran Shiundu">
+        
+        <!-- Open Graph Meta Tags for social media sharing -->
+        <meta property="og:title" content="Melora - Music Streaming Service">
+        <meta property="og:description" content="Melora offers a Spotify-like music streaming experience with endless tracks and curated playlists.">
+        <meta property="og:image" content="{% static 'images/preview_image.jpg' %}">
+        <meta property="og:url" content="https://www.melora.com">
+        <meta property="og:type" content="website">
+    
+        <!-- Twitter Card Meta Tags for Twitter sharing -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Melora - Music Streaming Service">
+        <meta name="twitter:description" content="Melora offers a Spotify-like music streaming experience with endless tracks and curated playlists.">
+        <meta name="twitter:image" content="{% static 'images/preview_image.jpg' %}">
+        
+        <title>Melora - signup</title>
+        
+        <!-- Link to Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        
+        <!-- Favicon (small icon shown in browser tab) -->
+        <link rel="icon" href="img/melora2.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black h-screen flex flex-col items-center justify-center">
+  <div class="w-full max-w-xs px-6">
+    <div class="mb-10 flex flex-col items-center">
+      <img src="img/melora.png" alt="melora Logo" class="w-20 h-20">
+      <h1 class="text-4xl text-white font-bold mt-2">Melora</h1>
+    </div>
+
+
+    <div>
+        <style>
+            h5{
+                color: red;
+            }
+        </style>
+
+        {% for message in messages %}
+        <h5>{{message}}</h5>
+        {% endfor %}
+    </div>
+    
+    <form action="" method="POST" class="bg-black">
+      {% csrf_token %}
+
+      <div class="mb-4">
+        <input class="bg-gray-800 text-white border border-gray-600 rounded py-2 px-4 block w-full appearance-none leading-normal" type="text" name="username" placeholder="Username">
+      </div>
+      <div class="mb-4">
+        <input class="bg-gray-800 text-white border border-gray-600 rounded py-2 px-4 block w-full appearance-none leading-normal" type="email" name="email" placeholder="Email">
+      </div>
+      <div class="mb-6">
+        <input class="bg-gray-800 text-white border border-gray-600 rounded py-2 px-4 block w-full appearance-none leading-normal" type="password" name="password" placeholder="Password">
+      </div>
+      <div class="mb-6">
+        <input class="bg-gray-800 text-white border border-gray-600 rounded py-2 px-4 block w-full appearance-none leading-normal" type="password" name="password2" placeholder="Repeat Password">
+      </div>
+      <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full mb-4">Register</button>
+      <p class="text-center text-gray-400 text-xs">
+        Already have an account?<a href="/login" class="text-green-500"> Sign in</a>
+      </p>
+    </form>
+
+    <p class="text-center text-gray-500 text-xs mt-4">
+      &copy; Melora
+    </p>
+  </div>
+</body>
+</html>
